@@ -1,0 +1,24 @@
+package com.gome.splunk.service;
+
+
+import com.gome.splunk.entity.UserRoleEntity;
+
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Created by liubing-ds3 on 2016/5/13.
+ */
+
+public interface UserRoleService {
+
+   void addUserRole(UserRoleEntity userRoleEntity);
+
+   boolean add ( String[] roles, String uId );
+
+   Set<String> getUserPerms(int uid);
+
+   void removeDatas() throws  Exception;
+
+   List<UserRoleEntity> findAll();
+}

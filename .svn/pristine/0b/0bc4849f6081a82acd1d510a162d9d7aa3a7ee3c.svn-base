@@ -1,0 +1,117 @@
+package com.gome.splunk.service.impl;
+
+import com.gome.splunk.common.constance.RoleTypeEnum;
+import com.gome.splunk.common.page.Page;
+import com.gome.splunk.common.page.PageList;
+import com.gome.splunk.dao.ResourceRoleDao;
+import com.gome.splunk.dao.RoleDao;
+import com.gome.splunk.dao.UserRoleDao;
+import com.gome.splunk.repository.RoleRepository;
+import com.gome.splunk.entity.RoleEntity;
+import com.gome.splunk.service.RoleService;
+import com.gome.splunk.vo.RoleVo;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.permission.RolePermissionResolver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Created by liubing-ds3 on 2016/5/13.
+ */
+
+@Service("RoleService")
+@Transactional(value = "jpaTransactionManager")
+public class RoleServiceImpl implements RoleService {
+
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Resource
+    private RoleDao roleDao;
+
+    @Resource
+    private UserRoleDao userRoleDao;
+
+    @Resource
+    private ResourceRoleDao resourceRoleDao;
+
+    public void addRole(RoleEntity role) {
+        roleRepository.save(role);
+    }
+
+    public RoleEntity findRoleById(Integer roleId) {
+        RoleEntity roleEntity = roleRepository.findOne(roleId);
+        return roleEntity;
+    }
+
+    public List<RoleEntity> findAll() {
+        List<RoleEntity> roles = roleDao.findAll();
+        return roles;
+    }
+
+
+    public PageList<RoleVo> selectPageList(Page page, String name) {
+       String hql = "select new " + RoleVo.class.getName() +
+                "(" +
+                "p.id,"+
+                "p.name,"+
+                "p.type," +
+                "p.type_name," +
+                "p.description," +
+                "p.update_time" +
+                " ) from RoleEntity as p " +
+                "where 1=1 ";
+
+        List<Object> params = new ArrayList<Object>();
+
+        if (StringUtils.isNotBlank(name)) {
+            hql += " and p.name = ? ";
+            params.add(name);
+        }
+        hql += " order by p.update_time desc";
+        return roleDao.findPageList(page, RoleVo.class, hql, params);
+    }
+
+
+    public Integer addRole(RoleVo roleVo) throws Exception {
+        RoleEntity entity = new RoleEntity();
+        entity.setName(roleVo.getName());
+        entity.setType_name(roleVo.getType_name());
+        entity.setType(RoleTypeEnum.getNameById(roleVo.getType_name()));
+        entity.setCreate_time(new Date(System.currentTimeMillis()));
+        entity.setUpdate_time(new Date(System.currentTimeMillis()));
+        roleDao.save(entity);
+        return entity.getId();
+    }
+
+    public boolean updateRole(RoleVo roleVo) throws Exception {
+        RoleEntity entity  = this.roleDao.findListByProperty("rid",roleVo.getId()).get(0);
+        entity.setName(roleVo.getName());
+        entity.setType(RoleTypeEnum.getNameById(roleVo.getType_name()));
+        entity.setType_name(roleVo.getType_name());
+        entity.setUpdate_time(new Date(System.currentTimeMillis()));
+        roleDao.update(entity);
+        return true;
+    }
+
+
+    public boolean remove(Integer id) {
+        try{
+            this.userRoleDao.deleteResultsByProperty("rid",id);
+            this.resourceRoleDao.deleteResultsByProperty("rid",id);
+            this.roleDao.deleteResultsByPropertyInValues("rid",id);
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+    }
+}

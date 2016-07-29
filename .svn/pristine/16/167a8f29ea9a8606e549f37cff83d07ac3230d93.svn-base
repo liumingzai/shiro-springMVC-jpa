@@ -1,0 +1,8 @@
+jdbc_driver=com.mysql.jdbc.Driver
+jdbc_url=jdbc:mysql://10.58.56.169:3306/bigdata_bo_system?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&generateSimpleParameterMetadata=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+jdbc_username=liubin
+jdbc_password=gP+9cMITDKdqp/+CY1FupLCTJe/0pSDrIZJ8BqgCVhY/PgRgCJWsyPtqZCXPcvgIvQPpKBFQvnw0ZNymzRlWHQ==
+
+#=========================LOGIN INFO============================================
+username=admin
+password=GOME618

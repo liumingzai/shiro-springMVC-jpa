@@ -1,0 +1,69 @@
+<%--
+Created by IntelliJ IDEA.
+User: liubing
+Date: 2016/06/03
+编辑用户模块
+Time: 16:11
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    label{font-size: 12px;line-height: 30px;}
+    .add_account input.text {font-size: 12px;float: left;}
+    .add_account label {width: 80px;}
+    .radio_popup_p span {font-size: 12px;line-height: 30px;}
+    #myForm{width: 465px;text-align: center}
+    .ngdialog.ngdialog-theme-plain .ngdialog-content {width: 438px}
+    .center_btn_a {text-align: center}
+    .center_btn_a a {margin: 10px 10px 10px 0;}
+    .popup_title {padding: 0 0 15px 5px;text-align: left}
+    .red_note {font-size: 12px; display: block;text-align:left; margin: 35px 0 0 100px;}
+    .dropdown .btn-default {width: 300px;float: left;}
+    .input_btn {border: none;margin: 10px 10px 10px 0;}
+</style>
+
+    <form id="myForm" name="myForm" role="user" ng-submit="saveBtn()" novalidate>
+        <h4 class="popup_title">编辑用户</h4>
+            <div class="add_account clearfix mb10">
+                <label>工号：</label>
+                <input class="text" type="text" ng-model="uno" name="uno" required/>
+                <div class="red_note" style="color:red" ng-show="myForm.uno.$dirty && myForm.uno.$invalid">
+                    <span ng-show="myForm.uno.$error.required">编号必填</span>
+                </div>
+            </div>
+            <div class="add_account clearfix mb10">
+                <label>域名<span style="color:red">*</span>：</label>
+                <input class="text" type="text" ng-model="username" name="username" required/>
+                <div class="red_note" style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+                    <span ng-show="myForm.username.$error.required">域名必填</span>
+                </div>
+            </div>
+            <div class="add_account clearfix mb10">
+                <label>Mac地址：</label>
+                <input class="text" type="text" ng-model="phone_mac" name="phone_mac" required/>
+                <div class="red_note" style="color:red" ng-show="myForm.phone_mac.$dirty && myForm.phone_mac.$invalid">
+                    <span ng-show="myForm.phone_mac.$error.required">Mac地址必填</span>
+                </div>
+            </div>
+            <div class="add_account clearfix mb10">
+                <label>用户名<span style="color:red">*</span>：</label>
+                <input class="text" type="text" ng-model="nickname"  name="nickname" required/>
+                <div class="red_note" style="color:red" ng-show="myForm.nickname.$dirty && myForm.nickname.$invalid">
+                   <span ng-show="myForm.nickname.$error.required">用户名必填</span>
+                </div>
+            </div>
+            <div class="add_account clearfix mb10">
+                <label>中心：</label>
+                <input class="text" type="text" ng-model="center"  name="center" />
+            </div>
+            <div class="add_account clearfix mb10">
+                <label>部门：</label>
+                <input class="text" type="text" ng-model="department"  name="department" />
+            </div>
+        <div class="center_btn_a clearfix">
+            <input class="button has_m_btn input_btn" type="submit" ng-disabled="myForm.username.$dirty &&myForm.username.$invalid||myForm.nickname.$dirty &&myForm.nickname.$invalid" value="保存"/>
+            <a class="button grey_button" href="#" ng-click="closed()">取消</a>
+        </div>
+    </form>
+
+

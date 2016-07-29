@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="dbSource.xml"/>
+
+    <!-- hibernate 事务配置 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- hibernate 数据库配置 -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <array>
+                <value>com.gome.splunk.entity</value>
+            </array>
+        </property>
+
+        <property name="mappingDirectoryLocations" value="classpath:/com/gome/splunk/dao"/>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="connection.autoReconnect">true</prop>
+                <prop key="connection.autoReconnectForPools">true</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+            </props>
+        </property>
+    </bean>
+    <!-- 备用-->
+    <bean class="org.springframework.orm.hibernate4.HibernateTemplate" id="hibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+</beans>

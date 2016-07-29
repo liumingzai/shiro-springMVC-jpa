@@ -1,0 +1,25 @@
+<div class="jumppage clearfix" style="text-align:right;margin-top: 10px ">
+    <div class="jumppage-left clearfix">
+        <span>当前第 <b>{{currPage}}<b> 页 共 <b>{{totalEle}}</b> 条，每页显示</span>
+        <span style="float:right;padding-left:10px"><b>50</b>  条</span>
+        <!--<div class="dropdown" style="float:right;margin:0 0 0 10px;">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                {{slicerNum}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"  ng-repeat="i in slicer" ng-click="slctSlicer(i)"><a role="menuitem" tabindex="-1" href="#">{{i}}</a></li>
+            </ul>
+        </div>-->
+    </div>
+    <div class="jumppage-right">
+        <ul class="clearfix pagination">
+            <li ng-click="clickBitchBtn()"><a class="first" ><i>&laquo</i></a></li><!--ng-click="clickBitchBtn()"-->
+            <li class="prev" ng-click="clickPageNum(currPage-2)" ng-class="{disabled:currPage==1}"><a><i>&lt</i></a></li>
+            <li ng-repeat="i in pageNums" ng-click="clickPageNum(i-1)" ng-show="i<10" ng-class="{active:currPage==(i)}"><a>{{i}}</a></li>
+            <li ng-if="pageNums.length==0" ng-click="clickPageNum(0)" class="active"><a>1</a></li>
+            <li class="next" ng-click="clickPageNum(currPage)"ng-class="{disabled:currPage==totalPage}"><a><i>&gt</i></a></li>
+            <li ng-click="clickBitchBtn('next')"><a class="last"><i>&raquo</i></a></li>
+        </ul>
+    </div>
+</div>

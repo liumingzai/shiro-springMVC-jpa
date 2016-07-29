@@ -1,0 +1,5 @@
+package come.gome.splunk.demo;
+
+public enum Gender {
+	MAN,WOMAN
+}

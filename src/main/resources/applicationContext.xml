@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+	   http://www.springframework.org/schema/task
+	   http://www.springframework.org/schema/task/spring-task.xsd
+	   http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置文件，在程序中获取配置项的时候使用-->
+    <util:properties id="config" location="classpath:/config_dev.properties"/>
+
+    <!-- SPRING配置内容占位符替换 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="propertiesArray">
+            <array>
+                <ref bean="config"/>
+            </array>
+        </property>
+    </bean>
+
+    <!--根据注解注入-->
+    <context:annotation-config/>
+
+    <!--自动注册注解的组件-->
+    <context:component-scan base-package="com.gome.splunk">
+        <context:include-filter type="regex" expression="com.gome.splunk.realm.*" />
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RequestMapping"/>
+    </context:component-scan>
+
+    <!--单个数据源引入此配置文件 hibernate 方式-->
+    <import resource="hibernateFactory.xml"/>
+    <!--spring-data-jpa方式-->
+    <import resource="jpaFactory.xml"/>
+    <import resource="shiro.xml"/>
+
+    <!--数据库执行监测-->
+    <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">
+    </bean>
+    <bean id="druid-type-proxyCreator" class="com.alibaba.druid.support.spring.stat.BeanTypeAutoProxyCreator">
+        <!-- 所有ABCInterface的派生类被拦截监控 -->
+        <property name="targetBeanType" value="com.gome.splunk.common.jpa.JpaBaseDao"/>
+        <property name="interceptorNames">
+            <list>
+                <value>druid-stat-interceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--Spring 工厂方式配置 EHCACHE Manager-->
+   <!-- <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="acceptExisting" value="false"/>
+        <property name="cacheManagerName" value="ehCacheManager"/>
+        <property name="configLocation" value="classpath:/ehcache.xml"/>
+        <property name="shared" value="true"/>
+    </bean>-->
+
+   <!-- <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="transactionAware" value="true"/>
+        <property name="cacheManager" ref="ehcache"/>
+    </bean>-->
+
+  <!--  <bean id="errorHandler" class="org.springframework.cache.interceptor.SimpleCacheErrorHandler"></bean>
+    <cache:annotation-driven error-handler="errorHandler" />-->
+
+    <!--开启注解任务调度配置-->
+    <task:annotation-driven/>
+
+    <!--开启注解缓存配置-->
+   <!-- <cache:annotation-driven cache-manager="cacheManager"/>-->
+
+    <!--国际化资源配置 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="useCodeAsDefaultMessage" value="true"/>
+    </bean>
+
+    <!--Service 方法名事务配置-->
+    <tx:advice id="txAdvice" transaction-manager="jpaTransactionManager">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="del*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="modify*" propagation="REQUIRED"/>
+            <tx:method name="change*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="active*" propagation="REQUIRED"/>
+            <tx:method name="send*" propagation="REQUIRED"/>
+            <tx:method name="receive*" propagation="REQUIRED"/>
+
+            <tx:method name="pushToRemote*" read-only="false" no-rollback-for="java.lang.RuntimeException"
+                       propagation="NOT_SUPPORTED" isolation="READ_COMMITTED"/>
+            <tx:method name="*" read-only="false" propagation="SUPPORTS"/>
+
+            <!--&lt;!&ndash; tx:method name="pushToRemote*" propagation="NOT_SUPPORTED"/ &ndash;&gt;-->
+            <!--<tx:method name="pushToRemote*" read-only="false" propagation="NOT_SUPPORTED" isolation="READ_COMMITTED" no-rollback-for="cn.com.snkad.atd.dsp.behe.BeheApiException, java.lang.RunTimeException"></tx:method>-->
+
+        </tx:attributes>
+    </tx:advice>
+
+
+    <!--开启注解事务配置-->
+    <tx:annotation-driven proxy-target-class="true"/>
+
+    <aop:config proxy-target-class="true">
+        <!-- 配置事务切入到Service包下的各个方法中-->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.gome.splunk.service..*.*(..))" order="1" />
+    </aop:config>
+
+    <!--开启注解事务配置-->
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="jpaTransactionManager" />
+
+</beans>

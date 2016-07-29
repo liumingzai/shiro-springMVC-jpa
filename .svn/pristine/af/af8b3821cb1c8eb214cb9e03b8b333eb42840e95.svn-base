@@ -1,0 +1,53 @@
+package com.gome.splunk.service.impl;
+
+import com.gome.splunk.dao.ResourceRoleDao;
+import com.gome.splunk.entity.ResourceEntity;
+import com.gome.splunk.entity.ResourceRoleEntity;
+import com.gome.splunk.entity.RoleEntity;
+import com.gome.splunk.repository.ResourceRoleRepository;
+import com.gome.splunk.service.ResourceRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+
+/**
+ * Created by liubing-ds3 on 2016/5/13.
+ */
+
+@Service("ResourceRoleService")
+@Transactional(value = "jpaTransactionManager")
+public class ResourceRoleServiceImpl implements ResourceRoleService {
+
+
+    @Autowired
+    private ResourceRoleRepository resourceRoleRepository;
+
+    @Resource
+    private ResourceRoleDao resourceRoleDao;
+
+
+
+    public boolean add(String[] resIds, String rId) {
+        //清除原有的资源分配
+        resourceRoleDao.deleteResultsByProperty("rid",rId);
+        if (null != resIds)
+        {
+            for ( int i = 0; i < resIds.length; i++ )
+            {
+                ResourceRoleEntity entity = new ResourceRoleEntity();
+                ResourceEntity resourceEntity = new ResourceEntity();
+                resourceEntity.setId(Integer.parseInt(resIds[i]));
+                entity.setResourceByResourceId(resourceEntity);
+                RoleEntity roleEntity = new RoleEntity();
+                roleEntity.setId(Integer.parseInt(rId));
+                entity.setRoleByRoleId(roleEntity);
+                this.resourceRoleDao.save( entity);
+            }
+        }
+        this.resourceRoleDao.flush();
+        return true;
+    }
+
+}

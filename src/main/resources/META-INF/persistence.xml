@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+<!--
+        Name属性用于定义持久化单元的名字 (name必选,空值也合法);
+        transaction-type 指定事务类型(可选)
+        RESOURCE_LOCAL:本地事务，JTA:全局事务(可配置多个数据源)jpaUnit
+    -->
+    <persistence-unit name="jpaUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="liubin"/>
+            <property name="hibernate.connection.password" value="liubin123"/>
+            <property name="hibernate.connection.url"
+                      value="jdbc:mysql://10.58.56.169:3306/bigdata_bo_system"/>
+            <property name="hibernate.max_fetch_depth" value="3"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

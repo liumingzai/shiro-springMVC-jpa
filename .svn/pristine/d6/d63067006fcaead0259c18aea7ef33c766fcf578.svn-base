@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.servicemix.bundles:org.apache.servicemix.bundles.javax-inject:1_2">
+    <CLASSES>
+      <root url="jar://D:/tool/apache-maven-3.0.5/splunkRepo/org/apache/servicemix/bundles/org.apache.servicemix.bundles.javax-inject/1_2/org.apache.servicemix.bundles.javax-inject-1_2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/tool/apache-maven-3.0.5/splunkRepo/org/apache/servicemix/bundles/org.apache.servicemix.bundles.javax-inject/1_2/org.apache.servicemix.bundles.javax-inject-1_2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/tool/apache-maven-3.0.5/splunkRepo/org/apache/servicemix/bundles/org.apache.servicemix.bundles.javax-inject/1_2/org.apache.servicemix.bundles.javax-inject-1_2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

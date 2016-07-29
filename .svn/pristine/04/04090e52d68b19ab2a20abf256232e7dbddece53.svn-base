@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- JDBC 数据源 连接池不配置driver也可以根据url自动识别-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${jdbc_driver}"/>
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
+        <property name="filters" value="config" />
+        <property name="connectionProperties" value="config.decrypt=true" />
+        <property name="maxActive">
+            <value>20</value>
+        </property>
+        <property name="initialSize">
+            <value>1</value>
+        </property>
+        <property name="maxWait">
+            <value>60000</value>
+        </property>
+        <property name="minIdle">
+            <value>1</value>
+        </property>
+        <property name="timeBetweenEvictionRunsMillis">
+            <value>60000</value>
+        </property>
+        <property name="minEvictableIdleTimeMillis">
+            <value>300000</value>
+        </property>
+        <property name="validationQuery">
+            <value>SELECT 'x'</value>
+        </property>
+        <property name="testWhileIdle">
+            <value>true</value>
+        </property>
+        <property name="testOnBorrow">
+            <value>false</value>
+        </property>
+        <property name="testOnReturn">
+            <value>false</value>
+        </property>
+        <property name="poolPreparedStatements">
+            <value>true</value>
+        </property>
+        <property name="maxOpenPreparedStatements">
+            <value>20</value>
+        </property>
+    </bean>
+
+    <!--输出日志增强-->
+    <bean id="myDataSourceLog4jProxy" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg name="realDataSource" ref="dataSource" />
+    </bean>
+
+
+</beans>

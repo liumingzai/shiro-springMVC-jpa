@@ -1,0 +1,62 @@
+package com.gome.splunk.realm;
+
+import com.gome.splunk.common.util.AppContext;
+import com.gome.splunk.service.ResourceRoleService;
+import com.gome.splunk.service.UserRoleService;
+import com.gome.splunk.service.UserService;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+/**
+ * @author Garfield on 2016-01-09 0009.
+ */
+
+public class MyRealm extends AuthorizingRealm {
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private UserRoleService userRoleService;
+
+	@Autowired
+	private ResourceRoleService resourceRoleService;
+
+	/**
+	 * 授权
+	 * @param principals
+	 * @return
+	 */
+	@Override
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+
+		return null;
+	}
+
+	/**
+	 * 认证
+	 * @param token
+	 * @return
+	 * @throws AuthenticationException
+	 */
+	@Override
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
+//		String username = upToken.getUsername(); // 这种方式获取用户名也可以
+		String username =String.valueOf(upToken.getPrincipal());
+		String _username = AppContext.username;
+		String password = String.valueOf(upToken.getPassword());
+		String _password = AppContext.password;
+		System.out.println("用户名："+ _username +" 密码："+_password);
+		if (username == null || password == null) { throw new AccountException("用户不存在"); }
+		if (!_username.equals(username)) { throw new AccountException("对不起,用户名不对"); }
+		if (!_password.equals(password)) { throw new AccountException("对不起,密码不对"); }
+		/*authenticationInfo = new SimpleAuthenticationInfo(username,_password,getName());
+		authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(username+user.getSalt()));*/
+		return new SimpleAuthenticationInfo(username, password, getClass().getName());
+	}
+}

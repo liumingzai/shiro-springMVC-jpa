@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+       default-lazy-init="true">
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+    <bean id="myRealm" class="com.gome.splunk.realm.MyRealm">
+        <!--<property name="credentialsMatcher" ref="passwordMatcher" />-->
+    </bean>
+
+    <bean id="passwordMatcher" class="com.gome.splunk.realm.PassWordService">
+        <property name="hashAlgorithmName" value="md5"></property>
+        <property name="hashIterations" value="2"></property>
+        <property name="storedCredentialsHexEncoded" value="true"></property>
+    </bean>
+
+    <!-- 配置shiro过滤器 -->
+    <bean id="shiroFilterFactoryBean" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.do"/>
+        <property name="successUrl" value="/splunk/index/menu.do"/>
+        <property name="unauthorizedUrl" value="/error.do"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /static/**=anon
+                /login.do = anon
+                /login/login.do = anon
+                /logout.do = anon
+                /** = anon
+            </value>
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+</beans>

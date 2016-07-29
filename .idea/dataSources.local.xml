@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - bigdata_bo_system@10.58.56.169" uuid="27d9351e-3619-45bb-8af3-865f05a42bec">
+      <secret-storage>master_key</secret-storage>
+      <user-name>liubin</user-name>
+    </data-source>
+  </component>
+</project>

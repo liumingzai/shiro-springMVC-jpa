@@ -1,0 +1,2074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - bigdata_bo_system@10.58.56.169" uuid="27d9351e-3619-45bb-8af3-865f05a42bec">
+    <database-info product="MySQL" version="5.6.24-72.2-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="bigdata_bo_system"/>
+      <table id="2" parent="1" name="bo_catorgy_base"/>
+      <table id="3" parent="1" name="bo_clickinfo"/>
+      <table id="4" parent="1" name="bo_data_task_month_report"/>
+      <table id="5" parent="1" name="bo_data_task_month_report_test"/>
+      <table id="6" parent="1" name="bo_department_base"/>
+      <table id="7" parent="1" name="bo_finance_amount_profit"/>
+      <table id="8" parent="1" name="bo_lianying_export"/>
+      <table id="9" parent="1" name="bo_lianying_export_test"/>
+      <table id="10" parent="1" name="bo_part_index"/>
+      <table id="11" parent="1" name="bo_realtime_report_profit_14"/>
+      <table id="12" parent="1" name="bo_realtime_report_sale_09"/>
+      <table id="13" parent="1" name="bo_report_brand_top_09"/>
+      <table id="14" parent="1" name="bo_report_brand_top_npop_09"/>
+      <table id="15" parent="1" name="bo_report_npop_sale_09"/>
+      <table id="16" parent="1" name="bo_report_npop_sale_09_hty"/>
+      <table id="17" parent="1" name="bo_report_order_pandect"/>
+      <table id="18" parent="1" name="bo_report_profit_14"/>
+      <table id="19" parent="1" name="bo_report_profit_15_real"/>
+      <table id="20" parent="1" name="bo_report_profit_15_timing"/>
+      <table id="21" parent="1" name="bo_report_sale_09"/>
+      <table id="22" parent="1" name="bo_report_sale_09_history"/>
+      <table id="23" parent="1" name="bo_report_sku_top_09"/>
+      <table id="24" parent="1" name="bo_report_sku_top_npop_09"/>
+      <table id="25" parent="1" name="bo_rlt_report_brand_top_09"/>
+      <table id="26" parent="1" name="bo_rlt_report_brd_npop_top_09"/>
+      <table id="27" parent="1" name="bo_rlt_report_npop_sale_09"/>
+      <table id="28" parent="1" name="bo_rlt_report_sku_top_09"/>
+      <table id="29" parent="1" name="bo_rlt_report_sku_top_npop_09"/>
+      <table id="30" parent="1" name="bo_syclickinfo">
+        <comment>é¦–é¡µç‚¹å‡»ç»Ÿè®¡</comment>
+      </table>
+      <table id="31" parent="1" name="bo_traffic_channel_uv"/>
+      <table id="32" parent="1" name="bo_traffic_channel_uv_day"/>
+      <table id="33" parent="1" name="bo_undelivery_order_new"/>
+      <table id="34" parent="1" name="bo_undelivery_order_stat"/>
+      <table id="35" parent="1" name="bo_virtualcommission"/>
+      <table id="36" parent="1" name="city_sales"/>
+      <table id="37" parent="1" name="dim_category"/>
+      <table id="38" parent="1" name="dim_center"/>
+      <table id="39" parent="1" name="finace_sales"/>
+      <table id="40" parent="1" name="homepage_heatmap"/>
+      <table id="41" parent="1" name="omc_gomeprd_site_traffic"/>
+      <table id="42" parent="1" name="omc_gomeprd_site_traffic_hwg"/>
+      <table id="43" parent="1" name="omc_gomeprd_site_traffic_mobile"/>
+      <table id="44" parent="1" name="omc_gomeprd_site_traffic_mobile_hwg"/>
+      <table id="45" parent="1" name="omc_gomeprd_site_traffic_test"/>
+      <table id="46" parent="1" name="omniture_report"/>
+      <table id="47" parent="1" name="omniture_report_sub"/>
+      <table id="48" parent="1" name="overseas_catagory"/>
+      <table id="49" parent="1" name="overseas_catagory_timing"/>
+      <table id="50" parent="1" name="overseas_channel_pc"/>
+      <table id="51" parent="1" name="overseas_shop"/>
+      <table id="52" parent="1" name="overseas_shop_timing"/>
+      <table id="53" parent="1" name="switch"/>
+      <table id="54" parent="1" name="t_user"/>
+      <table id="55" parent="1" name="t_user_profile"/>
+      <table id="56" parent="1" name="tmp_traffic"/>
+      <table id="57" parent="1" name="splite_sequence"/>
+      <table id="58" parent="1" name="splunk_data"/>
+      <table id="59" parent="1" name="splunk_day_data"/>
+      <table id="60" parent="1" name="user_ip_bean"/>
+      <table id="61" parent="1" name="bo_resource"/>
+      <table id="62" parent="1" name="bo_resource_role"/>
+      <table id="63" parent="1" name="bo_role"/>
+      <table id="64" parent="1" name="bo_user"/>
+      <table id="65" parent="1" name="bo_user_role"/>
+      <column id="66" parent="2" name="yjfl">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="67" parent="2" name="row_order">
+        <mandatory>1</mandatory>
+        <data-type>int(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="68" parent="3" name="click_date">
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="69" parent="3" name="click_time">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="70" parent="3" name="cleft">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="71" parent="3" name="ctop">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="72" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <key id="73" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="74" parent="4" name="dept">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="75" parent="4" name="task_amount">
+        <mandatory>1</mandatory>
+        <data-type>decimal(18,2)</data-type>
+      </column>
+      <column id="76" parent="4" name="sale_amount">
+        <mandatory>1</mandatory>
+        <data-type>decimal(18,2)</data-type>
+      </column>
+      <column id="77" parent="4" name="finish_rate">
+        <mandatory>1</mandatory>
+        <data-type>decimal(5,2)</data-type>
+      </column>
+      <column id="78" parent="4" name="gross_profit_amount">
+        <data-type>decimal(18,2)</data-type>
+      </column>
+      <column id="79" parent="4" name="gross_profit_margin">
+        <mandatory>1</mandatory>
+        <data-type>decimal(5,2)</data-type>
+      </column>
+      <column id="80" parent="4" name="report_date">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="81" parent="4" name="create_time">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="82" parent="5" name="dept">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="83" parent="5" name="task_amount">
+        <mandatory>1</mandatory>
+        <data-type>decimal(18,2)</data-type>
+      </column>
+      <column id="84" parent="5" name="sale_amount">
+        <mandatory>1</mandatory>
+        <data-type>decimal(18,2)</data-type>
+      </column>
+      <column id="85" parent="5" name="finish_rate">
+        <mandatory>1</mandatory>
+        <data-type>decimal(5,2)</data-type>
+      </column>
+      <column id="86" parent="5" name="gross_profit_amount">
+        <data-type>decimal(18,2)</data-type>
+      </column>
+      <column id="87" parent="5" name="gross_profit_margin">
+        <mandatory>1</mandatory>
+        <data-type>decimal(5,2)</data-type>
+      </column>
+      <column id="88" parent="5" name="report_date">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="89" parent="5" name="create_time">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="90" parent="6" name="dept_name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="91" parent="6" name="display_name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="92" parent="7" name="REPORT_DATE">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="93" parent="7" name="ORDER_TYPE">
+        <comment>业务类别</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="94" parent="7" name="AMOUNT">
+        <comment>销售金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="95" parent="7" name="AMOUNT_RATE">
+        <comment>销售占比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="96" parent="7" name="PROFIT">
+        <comment>佣金金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="97" parent="7" name="PROFIT_RATE">
+        <comment>佣金比例</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="98" parent="8" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="99" parent="8" name="EJCPCC">
+        <comment>二级商品层次</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="100" parent="8" name="XSSL">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="101" parent="8" name="SPSLZB">
+        <comment>商品数量占比</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="102" parent="8" name="XSJE">
+        <comment>销售金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="103" parent="8" name="XSJEZB">
+        <comment>销售金额占比</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="104" parent="8" name="PJDJ">
+        <comment>平均单价</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="105" parent="8" name="YF">
+        <comment>运费</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="106" parent="8" name="PTYHQJE">
+        <comment>平台优惠券金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="107" parent="8" name="SJYHQJE">
+        <comment>商家优惠券金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="108" parent="8" name="SPSSJE">
+        <comment>商品实收金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="109" parent="8" name="YFGSJJJ">
+        <comment>应付给商家金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="110" parent="8" name="YJJE">
+        <comment>佣金金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="111" parent="8" name="PJYJBL">
+        <comment>平均佣金比例</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="112" parent="8" name="CREATE_TIME">
+        <comment>创建时间</comment>
+        <data-type>date</data-type>
+      </column>
+      <key id="113" parent="8" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="114" parent="9" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="115" parent="9" name="EJCPCC">
+        <comment>二级商品层次</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="116" parent="9" name="XSSL">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="117" parent="9" name="SPSLZB">
+        <comment>商品数量占比</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="118" parent="9" name="XSJE">
+        <comment>销售金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="119" parent="9" name="XSJEZB">
+        <comment>销售金额占比</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="120" parent="9" name="PJDJ">
+        <comment>平均单价</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="121" parent="9" name="YF">
+        <comment>运费</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="122" parent="9" name="PTYHQJE">
+        <comment>平台优惠券金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="123" parent="9" name="SJYHQJE">
+        <comment>商家优惠券金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="124" parent="9" name="SPSSJE">
+        <comment>商品实收金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="125" parent="9" name="YFGSJJJ">
+        <comment>应付给商家金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="126" parent="9" name="YJJE">
+        <comment>佣金金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="127" parent="9" name="PJYJBL">
+        <comment>平均佣金比例</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="128" parent="9" name="CREATE_TIME">
+        <comment>创建时间</comment>
+        <data-type>date</data-type>
+      </column>
+      <key id="129" parent="9" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="130" parent="10" name="date_id">
+        <comment>日期</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="131" parent="10" name="attribute">
+        <comment>类型</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="132" parent="10" name="catagory">
+        <comment>品类</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="133" parent="10" name="cnt">
+        <comment>当日有效订单量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="134" parent="10" name="amt">
+        <comment>当日有效金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="135" parent="10" name="clk">
+        <comment>当日流量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="136" parent="10" name="cnt_last">
+        <comment>前一日有效订单量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="137" parent="10" name="amt_last">
+        <comment>前一日有效金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="138" parent="10" name="clk_last">
+        <comment>前一日流量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="139" parent="10" name="cnt_last_year">
+        <comment>去年同期有效订单量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="140" parent="10" name="amt_last_year">
+        <comment>去年同期有效金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="141" parent="10" name="clk_last_year">
+        <comment>去年同期流量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="142" parent="10" name="cnt_yoy">
+        <comment>订单量同比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="143" parent="10" name="amt_yoy">
+        <comment>订单金额同比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="144" parent="10" name="clk_yoy">
+        <comment>流量同比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="145" parent="10" name="cnt_mom">
+        <comment>订单量环比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="146" parent="10" name="amt_mom">
+        <comment>订单金额环比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="147" parent="10" name="clk_mom">
+        <comment>流量环比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="148" parent="11" name="REPORT_DATE">
+        <comment>报告日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="149" parent="11" name="REPORT_HOUR">
+        <comment>报告时间</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="150" parent="11" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="151" parent="11" name="SALE_AMOUNT">
+        <comment>销售额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="152" parent="11" name="QUANTITY">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="153" parent="11" name="BOOK_PROFIT">
+        <comment>账面毛利</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="154" parent="11" name="BOOK_PROFIT_RATE">
+        <comment>账面毛利率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="155" parent="11" name="SALE_AMOUNT_2">
+        <comment>销售额（单位：万）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="156" parent="12" name="REPORT_DATE">
+        <comment>报告日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="157" parent="12" name="REPORT_HOUR">
+        <comment>报告时间</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="158" parent="12" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="159" parent="12" name="REPORT_NAME">
+        <comment>报告名称</comment>
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="160" parent="12" name="SALE_AMOUNT">
+        <comment>销售金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="161" parent="12" name="QUANTITY">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="162" parent="12" name="SINGLE_PRODUCT_AMOUNT">
+        <comment>单品价值</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="163" parent="12" name="SALE_AMOUNT_2">
+        <comment>销售金额（单位：万）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="164" parent="13" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="165" parent="13" name="REPORT_HOUR">
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="166" parent="13" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="167" parent="13" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="168" parent="13" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="169" parent="13" name="BRAND_NAME">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="170" parent="13" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="171" parent="13" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="172" parent="13" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="173" parent="13" name="ind1_BRAND_TOP">
+        <columns>YJFL
+EJFL
+REPORT_HOUR
+report_date</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="174" parent="14" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="175" parent="14" name="REPORT_HOUR">
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="176" parent="14" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="177" parent="14" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="178" parent="14" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="179" parent="14" name="BRAND_NAME">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="180" parent="14" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="181" parent="14" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="182" parent="14" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="183" parent="14" name="ind_brand_top_npop">
+        <columns>YJFL
+EJFL
+REPORT_HOUR
+report_date</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="184" parent="15" name="REPORT_DATE">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="185" parent="15" name="REPORT_HOUR">
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="186" parent="15" name="DEPARTMENT">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="187" parent="15" name="SALE_AMOUNT">
+        <data-type>decimal(65,30)</data-type>
+      </column>
+      <column id="188" parent="15" name="SALE_AMOUNT_2">
+        <data-type>decimal(65,30)</data-type>
+      </column>
+      <column id="189" parent="15" name="QUANTITY">
+        <data-type>decimal(65,30)</data-type>
+      </column>
+      <column id="190" parent="15" name="PAID_AMOUNT">
+        <data-type>decimal(65,30)</data-type>
+      </column>
+      <column id="191" parent="15" name="PAID_AMOUNT_2">
+        <data-type>decimal(65,30)</data-type>
+      </column>
+      <column id="192" parent="15" name="PAID_QUANTITY">
+        <data-type>decimal(65,30)</data-type>
+      </column>
+      <column id="193" parent="15" name="report_name">
+        <data-type>varchar(400)</data-type>
+      </column>
+      <index id="194" parent="15" name="ind1_npop_sale">
+        <columns>REPORT_DATE
+REPORT_HOUR
+report_name</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="195" parent="16" name="REPORT_DATE">
+        <data-type>date</data-type>
+      </column>
+      <column id="196" parent="16" name="DEPARTMENT">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="197" parent="16" name="SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="198" parent="16" name="SALE_AMOUNT_2">
+        <data-type>double</data-type>
+      </column>
+      <column id="199" parent="16" name="QUANTITY">
+        <data-type>double</data-type>
+      </column>
+      <column id="200" parent="16" name="PAID_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="201" parent="16" name="PAID_AMOUNT_2">
+        <data-type>double</data-type>
+      </column>
+      <column id="202" parent="16" name="PAID_QUANTITY">
+        <data-type>double</data-type>
+      </column>
+      <column id="203" parent="16" name="REPORT_NAME">
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="204" parent="16" name="UPDATE_TIME">
+        <data-type>date</data-type>
+      </column>
+      <column id="205" parent="17" name="order_date">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="206" parent="17" name="type">
+        <comment>订单类型</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="207" parent="17" name="order_amount_today">
+        <comment>当天总订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="208" parent="17" name="cl_order_amount_today">
+        <comment>当天取消订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="209" parent="17" name="eff_rder_amount_today">
+        <comment>当天有效订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="210" parent="17" name="order_amount_month">
+        <comment>当月总订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="211" parent="17" name="cl_order_amount_month">
+        <comment>当月取消订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="212" parent="17" name="eff_order_amount_month">
+        <comment>当月有效订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="213" parent="17" name="dl_order_amount">
+        <comment>当月妥投订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="214" parent="17" name="pss_order_amount">
+        <comment>未妥投订单金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="215" parent="17" name="eff_tongbi">
+        <comment>当月有效订单同比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="216" parent="17" name="dl_tongbi">
+        <comment>当月妥投订单同比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="217" parent="17" name="eff_huanbi">
+        <comment>当月有效订单环比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="218" parent="17" name="dl_huanbi">
+        <comment>当月妥投订单环比</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="219" parent="17" name="update_time">
+        <comment>数据更新时间</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="220" parent="18" name="REPORT_DATE">
+        <comment>报告日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="221" parent="18" name="REPORT_HOUR">
+        <comment>报告时间</comment>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="222" parent="18" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="223" parent="18" name="SALE_AMOUNT">
+        <comment>销售额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="224" parent="18" name="QUANTITY">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="225" parent="18" name="BOOK_PROFIT">
+        <comment>账面毛利</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="226" parent="18" name="BOOK_PROFIT_RATE">
+        <comment>账面毛利率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="227" parent="18" name="SALE_AMOUNT_2">
+        <comment>销售额（单位：万）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="228" parent="19" name="REPORT_DATE">
+        <comment>报告日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="229" parent="19" name="REPORT_HOUR">
+        <comment>报告时间</comment>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="230" parent="19" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="231" parent="19" name="IS_GET_GJ">
+        <comment>是否获取到成本</comment>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="232" parent="19" name="SALE_AMOUNT">
+        <comment>销售额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="233" parent="19" name="QUANTITY">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="234" parent="19" name="BOOK_PROFIT">
+        <comment>账面毛利</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="235" parent="19" name="BOOK_PROFIT_RATE">
+        <comment>账面毛利率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="236" parent="19" name="SALE_AMOUNT_2">
+        <comment>销售额（单位：万）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="237" parent="20" name="REPORT_DATE">
+        <comment>报告日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="238" parent="20" name="REPORT_HOUR">
+        <comment>报告时间</comment>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="239" parent="20" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="240" parent="20" name="IS_GET_GJ">
+        <comment>是否获取到成本</comment>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="241" parent="20" name="SALE_AMOUNT">
+        <comment>销售额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="242" parent="20" name="QUANTITY">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="243" parent="20" name="BOOK_PROFIT">
+        <comment>账面毛利</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="244" parent="20" name="BOOK_PROFIT_RATE">
+        <comment>账面毛利率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="245" parent="20" name="SALE_AMOUNT_2">
+        <comment>销售额（单位：万）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="246" parent="21" name="REPORT_DATE">
+        <comment>报告日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="247" parent="21" name="REPORT_HOUR">
+        <comment>报告时间</comment>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="248" parent="21" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="249" parent="21" name="REPORT_NAME">
+        <comment>报告名称</comment>
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="250" parent="21" name="SALE_AMOUNT">
+        <comment>销售金额</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="251" parent="21" name="QUANTITY">
+        <comment>销售数量</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="252" parent="21" name="SINGLE_PRODUCT_AMOUNT">
+        <comment>单品价值</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="253" parent="21" name="SALE_AMOUNT_2">
+        <comment>销售金额（单位：万）</comment>
+        <data-type>double</data-type>
+      </column>
+      <index id="254" parent="21" name="ind_name_hour_date_amount">
+        <columns>REPORT_NAME
+REPORT_HOUR
+REPORT_DATE
+SALE_AMOUNT</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="255" parent="22" name="REPORT_DATE">
+        <data-type>date</data-type>
+      </column>
+      <column id="256" parent="22" name="DEPARTMENT">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="257" parent="22" name="REPORT_NAME">
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="258" parent="22" name="SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="259" parent="22" name="QUANTITY">
+        <data-type>double</data-type>
+      </column>
+      <column id="260" parent="22" name="SINGLE_PRODUCT_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="261" parent="22" name="SALE_AMOUNT_2">
+        <data-type>double</data-type>
+      </column>
+      <column id="262" parent="22" name="UPDATE_TIME">
+        <data-type>date</data-type>
+      </column>
+      <column id="263" parent="23" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="264" parent="23" name="REPORT_HOUR">
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="265" parent="23" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="266" parent="23" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="267" parent="23" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="268" parent="23" name="GOODS_NO">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="269" parent="23" name="GOODS_NAME">
+        <data-type>varchar(650)</data-type>
+      </column>
+      <column id="270" parent="23" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="271" parent="23" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="272" parent="23" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="273" parent="23" name="ind_report_date">
+        <columns>report_date</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="274" parent="24" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="275" parent="24" name="REPORT_HOUR">
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="276" parent="24" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="277" parent="24" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="278" parent="24" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="279" parent="24" name="GOODS_NO">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="280" parent="24" name="GOODS_NAME">
+        <data-type>varchar(650)</data-type>
+      </column>
+      <column id="281" parent="24" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="282" parent="24" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="283" parent="24" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="284" parent="24" name="ind1_sku_top_npop">
+        <columns>report_date
+REPORT_HOUR
+YJFL
+EJFL</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="285" parent="25" name="REPORT_DATE">
+        <data-type>char(20)</data-type>
+      </column>
+      <column id="286" parent="25" name="REPORT_HOUR">
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="287" parent="25" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="288" parent="25" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="289" parent="25" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="290" parent="25" name="BRAND_NAME">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="291" parent="25" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="292" parent="25" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="293" parent="25" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="294" parent="26" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="295" parent="26" name="REPORT_HOUR">
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="296" parent="26" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="297" parent="26" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="298" parent="26" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="299" parent="26" name="BRAND_NAME">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="300" parent="26" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="301" parent="26" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="302" parent="26" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="303" parent="27" name="REPORT_DATE">
+        <data-type>date</data-type>
+      </column>
+      <column id="304" parent="27" name="REPORT_HOUR">
+        <data-type>char(20)</data-type>
+      </column>
+      <column id="305" parent="27" name="DEPARTMENT">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="306" parent="27" name="SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="307" parent="27" name="SALE_AMOUNT_2">
+        <data-type>double</data-type>
+      </column>
+      <column id="308" parent="27" name="QUANTITY">
+        <data-type>double</data-type>
+      </column>
+      <column id="309" parent="27" name="PAID_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="310" parent="27" name="PAID_AMOUNT_2">
+        <data-type>double</data-type>
+      </column>
+      <column id="311" parent="27" name="PAID_QUANTITY">
+        <data-type>double</data-type>
+      </column>
+      <column id="312" parent="27" name="report_name">
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="313" parent="28" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="314" parent="28" name="REPORT_HOUR">
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="315" parent="28" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="316" parent="28" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="317" parent="28" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="318" parent="28" name="GOODS_NO">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="319" parent="28" name="GOODS_NAME">
+        <data-type>varchar(650)</data-type>
+      </column>
+      <column id="320" parent="28" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="321" parent="28" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="322" parent="28" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="323" parent="29" name="report_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="324" parent="29" name="REPORT_HOUR">
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="325" parent="29" name="REPORT_NAME">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="326" parent="29" name="YJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="327" parent="29" name="EJFL">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="328" parent="29" name="GOODS_NO">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="329" parent="29" name="GOODS_NAME">
+        <data-type>varchar(650)</data-type>
+      </column>
+      <column id="330" parent="29" name="GOOD_SALE_AMOUNT">
+        <data-type>double</data-type>
+      </column>
+      <column id="331" parent="29" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="332" parent="29" name="R_N">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="333" parent="30" name="click_date">
+        <comment>ç»Ÿè®¡æ—¥æœŸ</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="334" parent="30" name="syid">
+        <comment>é¦–é¡µä»£ç &#x81;</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="335" parent="30" name="pv">
+        <comment>PV</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="336" parent="31" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(80)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="337" parent="31" name="channel">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="338" parent="31" name="uv">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="339" parent="31" name="pv">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="340" parent="31" name="bounce_rate">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="341" parent="31" name="order_sum">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="342" parent="31" name="uv_effective">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="343" parent="31" name="percent_conversion">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="344" parent="31" name="initial_datetime">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="345" parent="31" name="channel">
+        <columns>channel
+initial_datetime</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="346" parent="31" name="channel">
+        <columns>channel
+initial_datetime</columns>
+        <underlying-index>channel</underlying-index>
+      </key>
+      <key id="347" parent="31" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="348" parent="32" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(80)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="349" parent="32" name="channel">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="350" parent="32" name="uv">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="351" parent="32" name="pv">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="352" parent="32" name="bounce_rate">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="353" parent="32" name="order_sum">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="354" parent="32" name="uv_effective">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="355" parent="32" name="percent_conversion">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="356" parent="32" name="initial_datetime">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="357" parent="32" name="channel">
+        <columns>channel
+initial_datetime</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="358" parent="32" name="channel">
+        <columns>channel
+initial_datetime</columns>
+        <underlying-index>channel</underlying-index>
+      </key>
+      <key id="359" parent="32" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="360" parent="33" name="DEPARTMENT">
+        <comment>部门</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="361" parent="33" name="AMOUNT_ALL">
+        <comment>已售未送达</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="362" parent="33" name="AMOUNT_TODAY">
+        <comment>今日应妥投</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="363" parent="33" name="DAYS_3">
+        <comment>3天内</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="364" parent="33" name="DAYS_7">
+        <comment>3-7天内</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="365" parent="33" name="ABOVE7DAYS">
+        <comment>7天以上</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="366" parent="33" name="INSERT_DATE">
+        <comment>更新日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="367" parent="33" name="INSERT_TIME">
+        <comment>时间</comment>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="368" parent="34" name="DEPARTMENT">
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="369" parent="34" name="DAYS_3">
+        <data-type>double</data-type>
+      </column>
+      <column id="370" parent="34" name="DAYS_7">
+        <data-type>double</data-type>
+      </column>
+      <column id="371" parent="34" name="ABOVE7DAYS">
+        <data-type>double</data-type>
+      </column>
+      <column id="372" parent="34" name="INSERT_DATE">
+        <data-type>date</data-type>
+      </column>
+      <column id="373" parent="34" name="INSERT_TIME">
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="374" parent="35" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(80)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="375" parent="35" name="secondlevel">
+        <comment>二级商品层次</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="376" parent="35" name="threelevel">
+        <comment>三级商品层次</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="377" parent="35" name="fourlevel">
+        <comment>四级商品层次</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="378" parent="35" name="salesamount">
+        <comment>销售金额</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="379" parent="35" name="salesrate">
+        <comment>销售占比</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="380" parent="35" name="concessionamount">
+        <comment>佣金金额</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="381" parent="35" name="concessionrate">
+        <comment>佣金占比</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="382" parent="35" name="initialdate">
+        <data-type>date</data-type>
+      </column>
+      <key id="383" parent="35" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="384" parent="36" name="time">
+        <comment>时间</comment>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="385" parent="36" name="cityname">
+        <comment>城市名字</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="386" parent="36" name="type">
+        <comment>自营/联营</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="387" parent="36" name="allsales">
+        <comment>有效销售</comment>
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="388" parent="36" name="dlsales">
+        <comment>妥投销售</comment>
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="389" parent="36" name="allsaleslast">
+        <comment>去年同期有效销售</comment>
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="390" parent="36" name="dlsaleslaset">
+        <comment>去年同期妥投销售</comment>
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="391" parent="37" name="CATEGORY_ID1">
+        <comment>一级品类编码</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="392" parent="37" name="CATEGORY_NAME1">
+        <comment>一级品类名称</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="393" parent="37" name="CATEGORY_ID2">
+        <comment>二级品类编码</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="394" parent="37" name="CATEGORY_NAME2">
+        <comment>二级品类名称</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="395" parent="37" name="CATEGORY_ID3">
+        <comment>三级品类编码</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="396" parent="37" name="CATEGORY_NAME3">
+        <comment>三级品类名称</comment>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="397" parent="38" name="center_id">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="398" parent="38" name="center_name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="399" parent="38" name="category_1_name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="400" parent="38" name="category_1_url">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="401" parent="38" name="category_1_id">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="402" parent="38" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <key id="403" parent="38" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="404" parent="39" name="time">
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="405" parent="39" name="fl">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="406" parent="39" name="qd">
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="407" parent="39" name="all_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="408" parent="39" name="already_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="409" parent="40" name="firstlocation">
+        <comment>第一级位置</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="410" parent="40" name="secondlocation">
+        <comment>第二级位置</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="411" parent="40" name="detail">
+        <comment>明细</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="412" parent="40" name="locationindex">
+        <comment>广告位在本楼层位置的序号</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="413" parent="40" name="code">
+        <comment>代码</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="414" parent="40" name="adname">
+        <comment>广告位名称</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="415" parent="40" name="uv">
+        <comment>uv</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="416" parent="40" name="orderrate">
+        <comment>订单参与率</comment>
+        <data-type>float(4,2)</data-type>
+      </column>
+      <column id="417" parent="40" name="date">
+        <comment>日期yyyy-MM-dd</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="418" parent="40" name="duration">
+        <comment>时间分段。0表示12点时段，1表示18点时段,2表示全天,3表示9点</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="419" parent="40" name="uvrate">
+        <comment>uv占比</comment>
+        <data-type>float(10,6)</data-type>
+      </column>
+      <column id="420" parent="40" name="sortcode">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="421" parent="40" name="insertdate">
+        <data-type>varchar(320)</data-type>
+      </column>
+      <column id="422" parent="41" name="date_time">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="423" parent="41" name="hour">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="424" parent="41" name="uv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="425" parent="41" name="fw_qty">
+        <comment>访问量</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="426" parent="41" name="pv">
+        <comment>页面查看</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="427" parent="41" name="visit_deep">
+        <comment>访问深度</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="428" parent="41" name="jumpout_rate">
+        <comment>跳出率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="429" parent="41" name="twice_jump_rate">
+        <comment>二跳率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="430" parent="41" name="avg_visit_minute">
+        <comment>平均访问时间（分）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="431" parent="42" name="date_time">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="432" parent="42" name="hour">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="433" parent="42" name="uv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="434" parent="42" name="pv">
+        <comment>页面查看</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="435" parent="42" name="visit">
+        <comment>访问</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="436" parent="43" name="date_time">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="437" parent="43" name="hour">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="438" parent="43" name="uv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="439" parent="43" name="fw_qty">
+        <comment>访问量</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="440" parent="43" name="pv">
+        <comment>页面查看</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="441" parent="43" name="visit_deep">
+        <comment>访问深度</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="442" parent="43" name="jumpout_rate">
+        <comment>跳出率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="443" parent="43" name="twice_jump_rate">
+        <comment>二跳率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="444" parent="43" name="avg_visit_minute">
+        <comment>平均访问时间（分）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="445" parent="44" name="date_time">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="446" parent="44" name="hour">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="447" parent="44" name="uv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="448" parent="44" name="pv">
+        <comment>页面查看</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="449" parent="44" name="visit">
+        <comment>访问</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="450" parent="45" name="date_time">
+        <comment>日期</comment>
+        <data-type>date</data-type>
+      </column>
+      <column id="451" parent="45" name="hour">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="452" parent="45" name="uv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="453" parent="45" name="fw_qty">
+        <comment>访问量</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="454" parent="45" name="pv">
+        <comment>页面查看</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="455" parent="45" name="visit_deep">
+        <comment>访问深度</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="456" parent="45" name="jumpout_rate">
+        <comment>跳出率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="457" parent="45" name="twice_jump_rate">
+        <comment>二跳率</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="458" parent="45" name="avg_visit_minute">
+        <comment>平均访问时间（分）</comment>
+        <data-type>double</data-type>
+      </column>
+      <column id="459" parent="46" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="460" parent="46" name="SHOP_ID">
+        <comment>店铺ID</comment>
+        <data-type>varchar(36)</data-type>
+      </column>
+      <column id="461" parent="46" name="PAGEVIEWS">
+        <comment>页面查看</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="462" parent="46" name="USERVIEWS">
+        <comment>每日独特访客</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="463" parent="46" name="VISITS">
+        <comment>访问</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="464" parent="46" name="ORDERS">
+        <comment>订单</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="465" parent="46" name="RESIDENCE_TIME">
+        <comment>总操作时间</comment>
+        <data-type>int(50)</data-type>
+      </column>
+      <column id="466" parent="46" name="JUMP_LOSS">
+        <comment>Bounces,跳出次数</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="467" parent="46" name="DATE_INSERT">
+        <comment>插入时间</comment>
+        <data-type>date</data-type>
+      </column>
+      <key id="468" parent="46" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="469" parent="47" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="470" parent="47" name="SHOP_ID">
+        <comment>店铺ID</comment>
+        <data-type>varchar(36)</data-type>
+      </column>
+      <column id="471" parent="47" name="NEW_USERVIEWS">
+        <comment>新访回访</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="472" parent="47" name="PAGEVIEWS">
+        <comment>页面查看</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="473" parent="47" name="USERVIEWS">
+        <comment>每日独特访客</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="474" parent="47" name="VISITS">
+        <comment>访问</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="475" parent="47" name="ORDERS">
+        <comment>订单</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="476" parent="47" name="RESIDENCE_TIME">
+        <comment>总操作时间</comment>
+        <data-type>int(50)</data-type>
+      </column>
+      <column id="477" parent="47" name="JUMP_LOSS">
+        <comment>Bounces,跳出次数</comment>
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="478" parent="47" name="DATE_INSERT">
+        <comment>插入时间</comment>
+        <data-type>date</data-type>
+      </column>
+      <key id="479" parent="47" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="480" parent="48" name="TIME">
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="481" parent="48" name="catagory_name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="482" parent="48" name="all_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="483" parent="48" name="all_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="484" parent="48" name="already_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="485" parent="48" name="already_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="486" parent="49" name="TIME">
+        <data-type>timestamp(6)</data-type>
+      </column>
+      <column id="487" parent="49" name="catagory_name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="488" parent="49" name="all_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="489" parent="49" name="all_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="490" parent="49" name="already_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="491" parent="49" name="already_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="492" parent="50" name="data_time">
+        <data-type>date</data-type>
+      </column>
+      <column id="493" parent="50" name="channel">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="494" parent="50" name="pv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="495" parent="50" name="uv">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="496" parent="50" name="jump_num">
+        <data-type>float(5,4)</data-type>
+      </column>
+      <column id="497" parent="50" name="hour">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="498" parent="51" name="TIME">
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="499" parent="51" name="shop_name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="500" parent="51" name="all_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="501" parent="51" name="all_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="502" parent="51" name="already_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="503" parent="51" name="already_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="504" parent="52" name="TIME">
+        <data-type>timestamp(6)</data-type>
+      </column>
+      <column id="505" parent="52" name="shop_name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="506" parent="52" name="all_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="507" parent="52" name="all_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="508" parent="52" name="already_sales">
+        <data-type>decimal(20,4)</data-type>
+      </column>
+      <column id="509" parent="52" name="already_cnt">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="510" parent="53" name="data_assistant">
+        <comment>是否显示数据助手项目 开关 0:关闭</comment>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="511" parent="54" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="512" parent="54" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="513" parent="54" name="passwd">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="514" parent="54" name="salt">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="515" parent="54" name="ct">
+        <data-type>date</data-type>
+      </column>
+      <column id="516" parent="54" name="ut">
+        <data-type>date</data-type>
+      </column>
+      <key id="517" parent="54" name="PRIMARY">
+        <columns>id
+name</columns>
+        <primary>1</primary>
+      </key>
+      <column id="518" parent="55" name="uid">
+        <mandatory>1</mandatory>
+        <data-type>int(32)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="519" parent="55" name="nickname">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="520" parent="55" name="email">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="521" parent="55" name="email_checked">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="522" parent="55" name="avatar">
+        <data-type>mediumblob</data-type>
+      </column>
+      <column id="523" parent="55" name="gender">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="524" parent="55" name="dt">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="525" parent="55" name="loc">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="526" parent="55" name="ct">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="527" parent="55" name="ut">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="528" parent="55" name="PRIMARY">
+        <columns>uid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="529" parent="56" name="id">
+        <data-type>int(2) unsigned zerofill</data-type>
+        <default-expression>&apos;00&apos;</default-expression>
+      </column>
+      <column id="530" parent="56" name="t_date">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="531" parent="56" name="t_hour">
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="532" parent="56" name="uv">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="533" parent="56" name="visits">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="534" parent="56" name="pv">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="535" parent="56" name="bounces">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="536" parent="56" name="total_seconds_spent">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="537" parent="57" name="name">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="538" parent="57" name="seq">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="539" parent="58" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(15)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="540" parent="58" name="submit_count_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="541" parent="58" name="submit_price_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="542" parent="58" name="cancle_count_rate">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="543" parent="58" name="cancle_price_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="544" parent="58" name="cancle_count_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="545" parent="58" name="trade_pay_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="546" parent="58" name="rate_than_before">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="547" parent="58" name="is_first_day">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="548" parent="58" name="today_cancle_count_rate">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="549" parent="58" name="today_cancle_price_rate">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="550" parent="58" name="today_cancle_count_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="551" parent="58" name="today_cancle_price_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="552" parent="58" name="quote_time">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="553" parent="58" name="cancle_count_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="554" parent="58" name="cancle_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="555" parent="58" name="today_cancle_count_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="556" parent="58" name="today_cancle_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="557" parent="58" name="trade_pay_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="558" parent="58" name="submit_count_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="559" parent="58" name="submit_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="560" parent="58" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="561" parent="59" name="submit_count_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="562" parent="59" name="submit_price_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="563" parent="59" name="cancle_count_rate">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="564" parent="59" name="cancle_price_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="565" parent="59" name="cancle_count_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="566" parent="59" name="trade_pay_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="567" parent="59" name="rate_than_before">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="568" parent="59" name="is_first_day">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="569" parent="59" name="today_cancle_count_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="570" parent="59" name="today_cancle_price_hour">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="571" parent="59" name="quote_time">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="572" parent="59" name="cancle_count_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="573" parent="59" name="cancle_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="574" parent="59" name="today_cancle_count_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="575" parent="59" name="today_cancle_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="576" parent="59" name="trade_pay_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="577" parent="59" name="submit_count_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="578" parent="59" name="submit_price_all">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="579" parent="60" name="user">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="580" parent="60" name="ip">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="581" parent="60" name="worng_ime">
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="582" parent="60" name="time">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <key id="583" parent="60" name="PRIMARY">
+        <columns>user</columns>
+        <primary>1</primary>
+      </key>
+      <column id="584" parent="61" name="rsid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="585" parent="61" name="rsname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="586" parent="61" name="parentId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="587" parent="61" name="url">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="588" parent="61" name="level">
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="589" parent="61" name="description">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="590" parent="61" name="updateByUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="591" parent="61" name="updateTime">
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="592" parent="61" name="createByUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="593" parent="61" name="createTime">
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="594" parent="61" name="PRIMARY">
+        <columns>rsid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="595" parent="62" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="596" parent="62" name="rsid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="597" parent="62" name="rid">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="598" parent="62" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="599" parent="63" name="rid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="600" parent="63" name="rname">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="601" parent="63" name="type">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="602" parent="63" name="description">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="603" parent="63" name="updateByUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="604" parent="63" name="updateTime">
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="605" parent="63" name="createByUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="606" parent="63" name="createTime">
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="607" parent="63" name="PRIMARY">
+        <columns>rid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="608" parent="64" name="uid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="609" parent="64" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="610" parent="64" name="nickname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="611" parent="64" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="612" parent="64" name="deptid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="613" parent="64" name="email">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="614" parent="64" name="description">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="615" parent="64" name="ipAdress">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+        <default-expression>&apos;&#x1;&apos;</default-expression>
+      </column>
+      <column id="616" parent="64" name="updateByUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="617" parent="64" name="updateTime">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="618" parent="64" name="createByUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="619" parent="64" name="createTime">
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="620" parent="64" name="PRIMARY">
+        <columns>uid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="621" parent="65" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="622" parent="65" name="uid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="623" parent="65" name="rid">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="624" parent="65" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

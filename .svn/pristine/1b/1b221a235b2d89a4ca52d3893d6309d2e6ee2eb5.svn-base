@@ -1,0 +1,286 @@
+package com.gome.splunk.controller;
+
+import com.gome.splunk.common.page.Page;
+import com.gome.splunk.common.page.PageList;
+import com.gome.splunk.entity.UserEntity;
+import com.gome.splunk.entity.UserRoleEntity;
+import com.gome.splunk.service.UserRoleService;
+import com.gome.splunk.service.UserService;
+import com.gome.splunk.vo.UserVo;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by liubing-ds3 on 2016/6/1.
+ * 用户管理模块
+ */
+@Controller
+@RequestMapping("/splunk/user")
+public class UserController {
+
+
+    private static final Logger log = Logger.getLogger(UserController.class);
+
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserRoleService userRoleService;
+
+    /**
+     * 用户列表
+     * @param page
+     * @param nickname
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/list.do")
+    public Map<String, Object> list(Page page, String nickname) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        PageList<UserVo> userVoPageList = userService.selectPageList(page, nickname);
+        map.put("pageList", userVoPageList);
+        map.put("success", true);
+        map.put("msg", "操作成功！");
+        return map;
+    }
+
+    /**
+     * 添加用户
+     * @param userVo
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/add.do")
+    public Map<String, Object> add(UserVo userVo) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        boolean success = false;
+        String msg = null;
+        try {
+            userService.addUser(userVo);
+            success = true;
+        } catch (Exception e) {
+            log.error("添加用户出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+
+    /**
+     * 修改用户
+     * @param user
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/update.do")
+    public Map<String, Object> update(UserVo user) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        boolean success = false;
+        String msg = null;
+        try {
+            userService.updateUser(user);
+            success = true;
+        } catch (Exception e) {
+            log.error("修改用户出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+    @ResponseBody
+    @RequestMapping("/edit.do")
+    public Map<String, Object> edit(Integer id)
+    {
+        Map<String, Object> map = new HashMap<String, Object>();
+        UserEntity user = userService.findUserById(id);
+        map.put( "user",user );
+        return map;
+    }
+
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/remove.do")
+    public Map<String, Object> remove(Integer id) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        boolean success = false;
+        String msg = null;
+        try {
+            userService.remove(id);
+            success = true;
+        } catch (Exception e) {
+            log.error("删除用户出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+    /**
+     * 权限设置
+     */
+    @ResponseBody
+    @RequestMapping("/userBindRole.do")
+    public Map<String, Object> userBindRole(HttpServletRequest request)
+    {
+        Map<String, Object> map = new HashMap<String, Object>();
+        String[] roleIds = request.getParameterValues("roleIds[]");
+        String uId = request.getParameter("uId");
+        boolean success = false;
+        String msg = null;
+        try {
+            success = userRoleService .add(roleIds,uId);
+        } catch (Exception e) {
+            log.error("添加账户出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+
+    /**
+     * 用户导入
+     * @param file
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/importDatas.do")
+    public Map<String, Object> importDatas(MultipartFile file, HttpServletRequest request) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        List<UserEntity> infos = new ArrayList<UserEntity>();
+        UserEntity userEntity = null;
+        int currentIndex = 0;
+        try {
+            XSSFWorkbook wb = new XSSFWorkbook(file.getInputStream());
+            XSSFSheet sheet1 = wb.getSheetAt(0);
+            int lastRowNum = sheet1.getLastRowNum() + 1;
+            for (int i = 1; i < lastRowNum; i++) {
+                currentIndex = i;
+                XSSFRow row = sheet1.getRow(i);
+                userEntity = new UserEntity();
+                userEntity.setUsername(row.getCell(0).getStringCellValue());
+                userEntity.setNickname(row.getCell(1).getStringCellValue());
+                if (row.getCell(2) != null) {
+                    row.getCell(2).setCellType(HSSFCell.CELL_TYPE_STRING);
+                }
+                userEntity.setDepartment(row.getCell(2).getStringCellValue());
+                infos.add(userEntity);
+            }
+            //导入前清空记录
+            userRoleService.removeDatas();
+            userService.removeDatas();
+            userService.saveDatas(infos);
+            result.put("msg", "操作成功！");
+            result.put("success", true);
+        } catch (Exception e) {
+            result.put("success", false);
+            result.put("msg", MessageFormat.format("第{0}行数据格式有问题", currentIndex + 1));
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 导出用户角色列表
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/exportUserBindRoles.do")
+    public void exportUserBindRoles(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            List<UserRoleEntity> lists = userRoleService.findAll();
+            HSSFWorkbook wb = new HSSFWorkbook();
+            HSSFSheet sheet = wb.createSheet("用户角色对应表");
+            //行高
+            sheet.setDefaultRowHeightInPoints(15);
+            //列宽
+            sheet.setDefaultColumnWidth(15);
+            //定义表头
+            HSSFRow row = sheet.createRow(0);
+            HSSFCellStyle style = wb.createCellStyle();
+            HSSFFont cellFont= wb.createFont();
+            cellFont.setUnderline((byte) 1);
+            cellFont.setColor( HSSFColor.BLUE.index);
+            style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+            style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
+            style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+
+            HSSFCell cell = row.createCell(0);
+            cell.setCellValue( "用户名" );
+            cell.setCellStyle(style);
+            cell = row.createCell(1);
+            cell.setCellValue( "角色名" );
+            cell.setCellStyle(style);
+
+            if(null != lists){
+                for (int i = 0; i < lists.size(); i++) {
+                    row = sheet.createRow(i + 1);
+                    UserRoleEntity userRole = lists.get(i);
+                    row.createCell(0).setCellValue(String.valueOf(userRole.getUserByUserId().getUsername()));
+                    row.createCell(1).setCellValue(String.valueOf(userRole.getRoleByRoleId().getName()));
+                }
+            }
+            //根据浏览器信息，处理文件名乱码问题
+            final String userAgent = request.getHeader("USER-AGENT");
+            OutputStream os = response.getOutputStream();//取得输出流
+            response.reset();//清空输出流
+            try {
+                String fileName = "用户角色关系表.xls";
+                String finalFileName = null;
+                if( StringUtils.contains( userAgent, "MSIE" )){//IE浏览器
+                    finalFileName = URLEncoder.encode( fileName, "UTF8" );
+                }else if(StringUtils.contains(userAgent, "Mozilla")){//google,火狐浏览器
+                    finalFileName = new String(fileName.getBytes(), "ISO8859-1");
+                }else{
+                    finalFileName = URLEncoder.encode(fileName,"UTF8");//其他浏览器
+                }
+                response.setHeader("Content-Disposition", "attachment; filename=\"" + finalFileName + "\"");//这里设置一下让浏览器弹出下载提示框，而不是直接在浏览器中打开
+                response.setContentType("application/vnd.ms-excel; charset=utf-8");
+                response.setCharacterEncoding("utf-8");//设置相应内容的编码格式
+                wb.write(os);
+            } catch (UnsupportedEncodingException e) {
+            }finally {
+                os.flush();
+                os.close();
+            }
+            //下面是对中文文件名的处理
+        } catch (Exception e) {
+            log.info("导出数据失败");
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<div>
+    <div class="jumppage clearfix">
+        <div class="jumppage-left clearfix">
+            <span>共 <b>{{totalEle}}</b> 条，每页显示</span>
+        <!--    <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    {{slicerNum}}
+                    <span class="caret"></span>
+                    </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" ng-repeat="i in slicer" ng-click="slctSlicer(i)"><a role="menuitem" tabindex="-1" href="#">{{i}}</a></li>
+                </ul>
+            </div>-->
+            <span>条</span>
+        </div>
+        <div class="jumppage-right">
+           <!-- <ul class="clearfix">
+                <li ng-click="clickBitchBtn()"><a class="btn">&ll;</a></li>
+                <li ng-click="clickPageNum(currPage-1)" ng-class="{disabled:currPage==0}"><a  class="btn">&lt;</a></li>
+                <li ng-repeat="i in pageNums" ng-click="clickPageNum(i-1)"><a class="btn" ng-class="{current:currPage==(i-1)}">{{i}}</a></li>
+                <li ng-if="pageNums.length==0" ng-click="clickPageNum(0)"><a class="btn current">1</a></li>
+                <li ng-click="clickPageNum(currPage+1)"ng-class="{disabled:currPage==totalPage-1}"><a  class="btn">&gt;</a></li>
+                <li ng-click="clickBitchBtn('next')"><a  class="btn">&gg;</a></li>
+            </ul>-->
+            <ul class="clearfix">
+                <li ng-click="clickBitchBtn()"><a class="btn">&laquo;</a></li>
+                <li ng-click="clickPageNum(currPage-1)" ng-class="{disabled:currPage==0}"><a  class="btn">&lsaquo;</a></li>
+                <li ng-repeat="i in pageNums" ng-click="clickPageNum(i-1)"><a class="btn" ng-class="{current:currPage==(i-1)}">{{i}}</a></li>
+                <li ng-if="pageNums.length==0" ng-click="clickPageNum(0)"><a class="btn current">1</a></li>
+                <li ng-click="clickPageNum(currPage+1)"ng-class="{disabled:currPage==totalPage-1}"><a  class="btn">&rsaquo;</a></li>
+                <li ng-click="clickBitchBtn('next')"><a  class="btn">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

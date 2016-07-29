@@ -1,0 +1,12 @@
+package com.gome.splunk.service;
+
+
+/**
+ * Created by liubing-ds3 on 2016/5/13.
+ */
+
+public interface ResourceRoleService {
+
+
+   boolean add(String[] resIds,String rId);
+}

@@ -1,0 +1,42 @@
+package come.gome.splunk.demo;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import java.io.Serializable;
+
+//
+@Embeddable
+public class AirLinePK implements Serializable{
+	private String startCity;
+	private String endCity;
+
+	@Column(length = 10 ,nullable = false)
+	public String getStartCity() {
+		return startCity;
+	}
+
+	@Column(length = 10 ,nullable = false)
+	public String getEndCity() {
+		return endCity;
+	}
+	
+
+	public void setStartCity(String startCity) {
+		this.startCity = startCity;
+	}
+
+	public void setEndCity(String endCity) {
+		this.endCity = endCity;
+	}
+
+	public AirLinePK(String startCity, String endCity) {
+		super();
+		this.startCity = startCity;
+		this.endCity = endCity;
+	}
+
+	public AirLinePK() {
+		super();
+	}
+	
+}

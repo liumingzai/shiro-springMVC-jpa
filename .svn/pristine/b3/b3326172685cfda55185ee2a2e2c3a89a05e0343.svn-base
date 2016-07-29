@@ -1,0 +1,21 @@
+package come.gome.splunk;
+
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+/**
+ * Created by Rayn on 2015/10/29.
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration({"classpath:applicationContext.xml"})
+public class SpringTest
+{
+    @Autowired
+    org.springframework.context.ApplicationContext context;
+
+
+}

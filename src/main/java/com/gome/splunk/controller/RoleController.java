@@ -1,0 +1,210 @@
+package com.gome.splunk.controller;
+
+import com.gome.splunk.common.page.Page;
+import com.gome.splunk.common.page.PageList;
+import com.gome.splunk.entity.RoleEntity;
+import com.gome.splunk.entity.UserRoleEntity;
+import com.gome.splunk.service.ResourceRoleService;
+import com.gome.splunk.service.RoleService;
+import com.gome.splunk.vo.RoleVo;
+import com.gome.splunk.vo.UserRoleVo;
+import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by liubing-ds3 on 2016/6/1.
+ * 角色管理模块
+ */
+@Controller
+@RequestMapping("/splunk/role")
+public class RoleController {
+
+
+    private static final Logger log = Logger.getLogger(RoleController.class);
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private ResourceRoleService resourceRoleService;
+    /**
+     * 用户列表
+     * @param page
+     * @param name
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/list.do")
+    public Map<String, Object> list(Page page, String name) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        PageList<RoleVo> roleVoPageList = roleService.selectPageList(page, name);
+        map.put("pageList", roleVoPageList);
+        map.put("success", true);
+        map.put("msg", "操作成功！");
+        return map;
+    }
+
+    /**
+     * 编辑角色
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/edit.do")
+    public Map<String, Object> edit(Integer id)
+    {
+        Map<String, Object> map = new HashMap<String, Object>();
+        RoleEntity role = roleService.findRoleById(id);
+        map.put( "role",role );
+        return map;
+    }
+
+    /**
+     * 添加角色
+     * @param role
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/add.do")
+    public Map<String, Object> add(RoleVo role) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        boolean success = false;
+        String msg = null;
+        try {
+            roleService.addRole(role);
+            success = true;
+        } catch (Exception e) {
+            log.error("添加角色出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+
+    /**
+     * 修改用户
+     * @param roleVo
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/update.do")
+    public Map<String, Object> update(RoleVo roleVo) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        boolean success = false;
+        String msg = null;
+        try {
+            roleService.updateRole(roleVo);
+            success = true;
+        } catch (Exception e) {
+            log.error("修改角色出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+
+
+    /**
+     * 删除产品
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/remove.do")
+    public Map<String, Object> remove(Integer id) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        boolean success = false;
+        String msg = null;
+        try {
+          /*  for(int i=0;i<roleIds.length;i++){*/
+            roleService.remove(id);
+        /*}*/
+            success = true;
+        } catch (Exception e) {
+            log.error("删除角色出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+
+    @RequestMapping("/getRoles")
+    @ResponseBody
+    public String getRoles(HttpServletRequest request) {
+        Integer uid = Integer.valueOf(request.getParameter("uid"))==null?0:Integer.valueOf(request.getParameter("uid"));
+        List<UserRoleVo> userRoleVos = roleService.findRoleByUserId(uid);
+        List<Map<String, Object>> maplists = new ArrayList<Map<String, Object>>();
+        List<RoleEntity> lists = roleService.findAll();
+        if (lists != null) {
+            for (RoleEntity role : lists) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                for(UserRoleVo userRoleVo : userRoleVos){
+                    if(userRoleVo.getRid()==role.getId()){
+                        map.put("checked",true);
+                        break;
+                    }
+                }
+                map.put("id",role.getId().toString());
+                map.put( "name",role.getName());
+                map.put( "type",role.getType().toString());
+                maplists.add(map);
+            }
+        }
+        Gson gson = new Gson();
+        String ajson = gson.toJson( maplists );
+        System.out.println(ajson);
+        return ajson;
+    }
+
+    /**
+     * 绑定角色资源设置
+     */
+    @ResponseBody
+    @RequestMapping("/roleBindResource.do")
+    public Map<String, Object> roleBindResource(HttpServletRequest request)
+    {
+        Map<String, Object> map = new HashMap<String, Object>();
+        String[] resIds = request.getParameterValues("resIds[]");
+        String rId = request.getParameter("rId");
+        boolean success = false;
+        String msg = null;
+        try {
+            success = resourceRoleService .add(resIds,rId);
+        } catch (Exception e) {
+            log.error("添加账户出错", e);
+            success = false;
+            msg = e.getMessage();
+        }
+        map.put("success", success);
+        map.put("msg", msg);
+        return map;
+    }
+
+
+
+
+}
